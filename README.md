@@ -1,2 +1,2 @@
 # testProject
-to test my skills in git 
+Navigation drawer for software engineering  
