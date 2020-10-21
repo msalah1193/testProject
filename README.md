@@ -1,5 +1,5 @@
 
-## Gateway iOS 
+## VFMVA10Payment iOS 
 
 Our payment module allows you to easily integrate payments into your journey inside iOS Mi Vodafone app.
 
@@ -18,7 +18,7 @@ let paymentBuilder = VFMA10PaymentConfigurationBuilder()
 
 let controller = paymentBuilder.build(inside: tray) 
 ```
-Note:- if you need to build your payment journey inside tray (VFBottomOverlay) build your payment with it in builder . 
+> if you need to build your payment journey inside tray (VFBottomOverlay) , pass the tray to build function. 
 
 ### Basic Implementation
 Using your journeyId , amount and paymentUserInfo you can build the module:
