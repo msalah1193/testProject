@@ -40,9 +40,12 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
  let controller = paymentBuilder.build(inside: overlay) // handle the result (by pushing - presenting , ....)
 
 ```
-> Note:- for anonmous journey . \n
+> Note:- for anonmous journey . 
+
 > let documentId = "<#should be empty string #>"
+
 > let accountId = "<#should be "ANONMOUS"#>"
+
 > let subscriptionId = "<#subscription Id for the one who paid for#>". 
 
 
