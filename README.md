@@ -21,20 +21,16 @@ let controller = paymentBuilder.build(inside: tray)
 > if you need to build your payment journey inside tray (VFBottomOverlay) , pass the tray to build function. 
 
 ### Basic Implementation
-Using your journeyId , amount and paymentUserInfo you can build the module:
+Using your journey Id , amount and paymentUserInfo you can build the basic module:
 
 ```swift
 let amount = "<# your amount in double #>"
-
 let concept = "<# your journey's concepto value #>"
-
 let wcsChannel = "<# your journey's wcsChannel to retrieve the WCS content#>"
-
 let documentId = "<#document Id for the one who pay#>"
 let accountId = "<#account Id for the one who pay#>"
 let subscriptionId = "<#subscription Id for the one who pay#>"
 let journeyId = "<# your journey's id #>"
-
 let paymentInfo = PaymentUserInfo(documentId: documentId, accountId: accountId, subscriptionId: subscriptionId)
 let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amount, journeyId: journeyId)
 
@@ -44,6 +40,12 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
  let controller = paymentBuilder.build(inside: overlay) // handle the result (by pushing - presenting , ....)
 
 ```
+> Note:- for anonmous journey .
+let documentId = "<#should be empty string #>"
+let accountId = "<#should be "ANONMOUS"#>"
+let subscriptionId = "<#subscription Id for the one who paid for#>". 
+
+
 in order to change your content language , you should change the language before building the module 
 
 > Possible languages values include, `es`and `en` and by default is `es`
