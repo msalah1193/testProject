@@ -61,3 +61,15 @@ in order to change your content language , you should change the language before
  let controller = paymentBuilder.build(inside: overlay) // handle the result 
 
 ```
+in order to add credit Card to use it instead of entering your credit card info, you should change the language before building the module 
+
+> using saved credit card , consider a different journey with a different journey id 
+
+```swift
+
+ let paymentBuilder = VFMA10PaymentConfigurationBuilder()
+ paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
+ paymentBuilder.add(creditCard: <# filled object of VFCreditCardInfo#>)
+ let controller = paymentBuilder.build(inside: overlay) // handle the result 
+
+```
