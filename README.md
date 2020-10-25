@@ -16,9 +16,9 @@ In order to use the payment module, you must initialize the `VFMA10PaymentConfig
 let paymentBuilder = VFMA10PaymentConfigurationBuilder()
 
 
-let controller = paymentBuilder.build(inside: tray) 
+let controller = paymentBuilder.build() 
 ```
-> if you need to build your payment journey inside tray (VFBottomOverlay) , pass the tray to build function. 
+> if you need to build your payment journey inside tray (VFBottomOverlay) , use ```paymentBuilder.build(inside: tray)``` . 
 
 ### Basic Implementation
 Using your journey Id , amount and paymentUserInfo you can build the basic module:
