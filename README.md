@@ -125,6 +125,51 @@ The success feedback controller overrides click on its own button. Use the dedic
         
     }
 ```
-> VFMVA10PaymentResult refer to payment journey result 
+> `VFMVA10PaymentResult` refer to payment journey result .
 
-> VFPaymentNavigator refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module 
+> `VFPaymentNavigator` refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module .
+
+
+  - failure actions
+
+Tells the builder to delegate the failure action to a delegate class.
+
+```swift
+
+ paymentBuilder.delegateFailureActions(to: <# class or controller that implement MVA10PaymentFailureFeedbackActionDelegate protocol#>)
+ let controller = paymentBuilder.build() // handle the result 
+
+```
+The Failure feedback controller overrides click on its own button. Use the dedicated `MVA10PaymentFailureFeedbackActionDelegate` methods .
+
+```swift
+    // your override action for PrimaryAction(the first one)
+   func paymentFailurePrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+       
+    }
+   
+     // your override action for SecondaryAction(the second one)
+    func paymentFailureSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+        navigator.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // your override action for closeAction(only on the tray)
+    func paymentFailureCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+        
+    }
+```
+> `VFMVA10PaymentResult` refer to payment journey result .
+
+> `MVA10PaymentFailureType` refer to the error type that happen ().
+```swift
+    case invalidCard
+    case incorrectCardData
+    case unsupportedCreditCard
+    case systemNotAvailable
+    case timeout
+    case general
+    case serverError(errorCode: String?) // only when load payment url
+
+```
+> `VFPaymentNavigator` refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module .
