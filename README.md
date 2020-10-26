@@ -113,16 +113,15 @@ The success feedback controller overrides click on its own button. Use the dedic
    func paymentSuccessPrimaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
        
     }
-   
-     // your override action for SecondaryAction(the second one)
+    
+    // your override action for SecondaryAction(the second one)
     func paymentSuccessSecondaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
-        navigator.dismiss(animated: true, completion: nil)
-        
+        // ...        
     }
     
     // your override action for closeAction(only on the tray)
     func paymentSuccessCloseAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
-        
+        // ...
     }
 ```
 > `VFMVA10PaymentResult` provides information about the payment that had been done .
@@ -145,18 +144,17 @@ The Failure feedback controller overrides click on its own button. Use the dedic
 ```swift
     // your override action for PrimaryAction(the first one)
    func paymentFailurePrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
-       
+       // ...
     }
    
      // your override action for SecondaryAction(the second one)
     func paymentFailureSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
-        navigator.dismiss(animated: true, completion: nil)
-        
+        // ...
     }
     
     // your override action for closeAction(only on the tray)
     func paymentFailureCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
-        
+        // ...
     }
 ```
 > `VFMVA10PaymentResult` provides information about the payment that had been failed  .
@@ -189,18 +187,17 @@ The refund feedback controller overrides click on its own button. Use the dedica
 ```swift
     // your override action for PrimaryAction(the first one)
    func paymentRefundPrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
-       
+       // ...
     }
    
-     // your override action for SecondaryAction(the second one)
+    // your override action for SecondaryAction(the second one)
     func paymentRefundSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
-        navigator.dismiss(animated: true, completion: nil)
-        
+       // ...        
     }
     
     // your override action for closeAction(only on the tray)
     func paymentRefundCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
-        
+       // ... 
     }
 ```
 > `VFMVA10PaymentResult` provides information about the payment that had been refunded  .
