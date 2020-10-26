@@ -18,7 +18,7 @@ let paymentBuilder = VFMA10PaymentConfigurationBuilder()
 
 let controller = paymentBuilder.build() 
 ```
-> if you need to build your payment journey inside tray (VFBottomOverlay) , use ```paymentBuilder.build(inside: tray)``` . 
+> if you need to build your payment journey inside tray (VFBottomOverlayController) , use ```paymentBuilder.build(inside: tray)``` . 
 
 ### Basic Implementation
 Using your journey Id , amount and paymentUserInfo you can build the basic module:
@@ -37,7 +37,7 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
  let paymentBuilder = VFMA10PaymentConfigurationBuilder()
  paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
 
- let controller = paymentBuilder.build(inside: overlay) // handle the result (by pushing - presenting , ....)
+ let controller = paymentBuilder.build() // handle the result (by pushing - presenting , ....)
 
 ```
 > Note:- for anonmous journey . 
@@ -55,10 +55,8 @@ in order to change your content language , you should change the `language` befo
 
 ```swift
 
- let paymentBuilder = VFMA10PaymentConfigurationBuilder()
- paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
  paymentBuilder.changeLanguage(to "<# journey's language #>") 
- let controller = paymentBuilder.build(inside: overlay) // handle the result 
+ let controller = paymentBuilder.build() // handle the result 
 
 ```
 in order to add credit Card to use it instead of entering your credit card info, you should add `VFCreditCardInfo` before building the module 
@@ -66,11 +64,8 @@ in order to add credit Card to use it instead of entering your credit card info,
 > using saved credit card , consider a different journey with a different journey id 
 
 ```swift
-
- let paymentBuilder = VFMA10PaymentConfigurationBuilder()
- paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
  paymentBuilder.add(creditCard: <# filled object of VFCreditCardInfo#>)
- let controller = paymentBuilder.build(inside: overlay) // handle the result 
+ let controller = paymentBuilder.build() // handle the result 
 
 ```
 in order to add message Placeholder to replace in success message , you should add `messagePlaceholder` before building the module 
@@ -81,10 +76,8 @@ in order to add message Placeholder to replace in success message , you should a
 
 ```swift
 
- let paymentBuilder = VFMA10PaymentConfigurationBuilder()
- paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
  let messagePlaceholder = FeedbackPlaceholder(ok: <# filled object of MessagePlaceholder#>)
  paymentBuilder.add(messagePlaceholder: messagePlaceholder)
- let controller = paymentBuilder.build(inside: overlay) // handle the result 
+ let controller = paymentBuilder.build() // handle the result 
 
 ```
