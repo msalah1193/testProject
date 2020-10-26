@@ -61,7 +61,7 @@ in order to change your content language , you should change the language before
  let controller = paymentBuilder.build(inside: overlay) // handle the result 
 
 ```
-in order to add credit Card to use it instead of entering your credit card info, you should change the language before building the module 
+in order to add credit Card to use it instead of entering your credit card info, you should add credit Card info before building the module 
 
 > using saved credit card , consider a different journey with a different journey id 
 
@@ -70,6 +70,21 @@ in order to add credit Card to use it instead of entering your credit card info,
  let paymentBuilder = VFMA10PaymentConfigurationBuilder()
  paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
  paymentBuilder.add(creditCard: <# filled object of VFCreditCardInfo#>)
+ let controller = paymentBuilder.build(inside: overlay) // handle the result 
+
+```
+in order to add message Placeholder to replace in success message , you should add messagePlaceholder before building the module 
+
+> for example if your message "your payment 50$ is successfully done at 12/5/2020 " 
+> your messagePlaceholder object should contain ["50$","12/5/2020"] , and The arrangement is taken into account .
+
+
+```swift
+
+ let paymentBuilder = VFMA10PaymentConfigurationBuilder()
+ paymentBuilder.with(paramsModel: paramModel, concept: concept, wcsChannel: wcsChannel)
+ let messagePlaceholder = FeedbackPlaceholder(ok: <# filled object of MessagePlaceholder#>)
+ paymentBuilder.add(messagePlaceholder: messagePlaceholder)
  let controller = paymentBuilder.build(inside: overlay) // handle the result 
 
 ```
