@@ -91,3 +91,18 @@ in order to disable Refund in timeout and cancel , you should add `disableRefund
  let controller = paymentBuilder.build() // handle the result 
 
 ```
+### Feedback Actions 
+You can override your feedback action for (close - primary - secondary) , using the dedicated delegate methods
+
+> by default actions is dismissing the controller
+  
+  - success actions
+
+Tells the builder to delegate the success action to a delegate class.
+
+```swift
+
+ paymentBuilder.delegateSuccessActions(to: <# class or controller that implement MVA10PaymentSuccessFeedbackActionDelegate protocol#>)
+ let controller = paymentBuilder.build() // handle the result 
+
+```
