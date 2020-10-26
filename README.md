@@ -68,7 +68,7 @@ in order to add credit Card to use it instead of entering your credit card info,
  let controller = paymentBuilder.build() // handle the result 
 
 ```
-in order to add message Placeholder to replace in success message , you should add `messagePlaceholder` before building the module 
+in order to add message Placeholder to replace in feedback message , you should add `messagePlaceholder` before building the module 
 
 > for example if your message "your payment 50$ is successfully done at 12/5/2020 " 
 > your `messagePlaceholder` object should contain ["50$","12/5/2020"] the value that didn't depend on `WCS`, and The arrangement is taken into account .
