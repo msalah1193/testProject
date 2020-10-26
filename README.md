@@ -106,3 +106,25 @@ Tells the builder to delegate the success action to a delegate class.
  let controller = paymentBuilder.build() // handle the result 
 
 ```
+The success feedback controller overrides click on its own button. Use the dedicated `MVA10PaymentSuccessFeedbackActionDelegate` methods .
+
+```swift
+    // your override action for PrimaryAction(the first one)
+   func paymentSuccessPrimaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+       
+    }
+   
+     // your override action for SecondaryAction(the second one)
+    func paymentSuccessSecondaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+        navigator.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // your override action for closeAction(only on the tray)
+    func paymentSuccessCloseAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+        
+    }
+```
+> VFMVA10PaymentResult refer to payment journey result 
+
+> VFPaymentNavigator refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module 
