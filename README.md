@@ -161,7 +161,7 @@ The Failure feedback controller overrides click on its own button. Use the dedic
 ```
 > `VFMVA10PaymentResult` refer to payment journey result .
 
-> `MVA10PaymentFailureType` refer to the error type that happen ().
+> `MVA10PaymentFailureType` refer to the error type that happen .
 ```swift
     case invalidCard
     case incorrectCardData
