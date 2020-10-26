@@ -203,7 +203,7 @@ The refund feedback controller overrides click on its own button. Use the dedica
         
     }
 ```
-> `VFMVA10PaymentResult` provides information about the payment that had been failed  .
+> `VFMVA10PaymentResult` provides information about the payment that had been refunded  .
 
 > `MVA10PaymentRefundFeedbackType` refer to the refund Feedback Type that happened.
 ```swift
