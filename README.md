@@ -81,3 +81,13 @@ in order to add message Placeholder to replace in feedback message , you should 
  let controller = paymentBuilder.build() // handle the result 
 
 ```
+in order to disable Refund in timeout and cancel , you should add `disableRefund` before building the module 
+
+> by default refund is enable 
+
+```swift
+
+ paymentBuilder.disableRefund()
+ let controller = paymentBuilder.build() // handle the result 
+
+```
