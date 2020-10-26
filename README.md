@@ -5,7 +5,7 @@ Our payment module allows you to easily integrate payments into your journey ins
 
 ## Usage
 
-This simple example demonstrates how a `purchase` can be made .
+This simple example demonstrates how a `payment` can be made .
 
 
 ## Configuration 
