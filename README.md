@@ -125,9 +125,9 @@ The success feedback controller overrides click on its own button. Use the dedic
         
     }
 ```
-> `VFMVA10PaymentResult` refer to payment journey result .
+> `VFMVA10PaymentResult` provides information about the payment that had been done .
 
-> `VFPaymentNavigator` refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module .
+> `VFPaymentNavigator` refer to navigator inside the payment journey starting from iframe to success feedback screen ,so you SHOULD USE it to navigate inside the payment module after success feedback screen.
 
 
   - failure actions
@@ -159,9 +159,9 @@ The Failure feedback controller overrides click on its own button. Use the dedic
         
     }
 ```
-> `VFMVA10PaymentResult` refer to payment journey result .
+> `VFMVA10PaymentResult` provides information about the payment that had been failed  .
 
-> `MVA10PaymentFailureType` refer to the error type that happen .
+> `MVA10PaymentFailureType` refer to the error type that happen.
 ```swift
     case invalidCard
     case incorrectCardData
@@ -172,4 +172,46 @@ The Failure feedback controller overrides click on its own button. Use the dedic
     case serverError(errorCode: String?) // only when load payment url
 
 ```
-> `VFPaymentNavigator` refer to navigator inside the payment journey so you SHOULD USE it to navigate inside the payment module .
+> `VFPaymentNavigator` refer to navigator inside the payment journey starting from iframe to failure feedback screen , so you SHOULD USE it to navigate inside the payment module after error feedback screen.
+
+- refund actions
+
+Tells the builder to delegate the refund action to a delegate class.
+
+```swift
+
+ paymentBuilder.delegateFailureActions(to: <# class or controller that implement MVA10PaymentRefundFeedbackActionDelegate protocol#>)
+ let controller = paymentBuilder.build() // handle the result 
+
+```
+The refund feedback controller overrides click on its own button. Use the dedicated `MVA10PaymentRefundFeedbackActionDelegate` methods .
+
+```swift
+    // your override action for PrimaryAction(the first one)
+   func paymentRefundPrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
+       
+    }
+   
+     // your override action for SecondaryAction(the second one)
+    func paymentRefundSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
+        navigator.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // your override action for closeAction(only on the tray)
+    func paymentRefundCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentRefundFeedbackType, navigator: VFPaymentNavigator) {
+        
+    }
+```
+> `VFMVA10PaymentResult` provides information about the payment that had been failed  .
+
+> `MVA10PaymentRefundFeedbackType` refer to the refund Feedback Type that happened.
+```swift
+    case success
+    case failed
+    case operationNotExist
+    case mortiroloError
+    case general
+
+```
+> `VFPaymentNavigator` refer to navigator inside the payment journey starting from iframe to failure feedback screen ,so you SHOULD USE it to navigate inside the payment module after refund feedback screen.
