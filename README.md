@@ -237,3 +237,33 @@ The refund feedback controller overrides click on its own button. Use the dedica
 
 ```
 > `VFPaymentNavigator` refer to navigator inside the payment journey starting from iframe to failure feedback screen ,so you SHOULD USE it to navigate inside the payment module after refund feedback screen.
+
+### Tagging
+You can add a tagging object to `VFMA10PaymentConfigurationBuilder` using this method
+
+```swift
+func add(taggingObject: MVA10PaymentTaggingModel)
+```
+
+Use `MVA10PaymentTaggingModelBuilder` to build the tagging object
+
+```swift
+let taggingObject = MVA10PaymentTaggingModelBuilder()
+            .setPrevious(screenName: "screen name")
+            .addJourney(name: .billPayment)
+            .addJourney(type: .service)
+            .addJourney(process: .payInAdvance)
+            .addJourney(subcategory: .postpaid)
+            .addJourney(environment: .publicEnv)
+            .build()
+```
+
+Each tagging parameter can be either a predefined value or a custom value according to journey
+
+```swift
+let taggingObject = MVA10PaymentTaggingModelBuilder()
+            .setPrevious(screenName: "screen name")
+            .addJourney(name: .custom("your custom journey name"))
+            .addJourney(type: .custom("your custom journey type"))
+            .build()
+```
