@@ -40,16 +40,34 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
  let controller = paymentBuilder.build() // handle the result (by pushing - presenting , ....)
 
 ```
-> Note:- for anonmous journey . 
+ - make top up for other  . 
+   the `PaymentUserInfo` object should be :- 
+```swift
+// ...
+
+let documentId = "<#document Id for the one who pay#>"
+let accountId = "<#account Id for the one who pay#>"
+let subscriptionId = "<#subscription Id for the one who pay#>"
+let topupSubscriptionId = "<#subscription Id for the one who paid for#>"
+let paymentInfo = PaymentUserInfo(documentId: documentId, accountId: accountId, subscriptionId: subscriptionId,topupSubscriptionId: topupSubscriptionId)
+
+// ...
+```
+
+- anonymous journey . 
+    the `PaymentUserInfo` object should be :- 
 ```swift
 // ...
 
 let documentId = "<#should be empty string #>"
 let accountId = "<#should be "ANONYMOUS"#>"
-let subscriptionId = "<#subscription Id for the one who pay#>"
+let subscriptionId = "<#subscription Id for the one who paid for#>"
+let topupSubscriptionId = "<#subscription Id for the one who paid for#>"
+let paymentInfo = PaymentUserInfo(documentId: documentId, accountId: accountId, subscriptionId: subscriptionId,topupSubscriptionId: topupSubscriptionId)
 
 // ...
 ```
+
 
 in order to change your content language , you should change the `language` before building the module 
 
