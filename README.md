@@ -41,13 +41,15 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
 
 ```
 > Note:- for anonmous journey . 
+```swift
+// ...
 
-> let documentId = "<#should be empty string #>"
+let documentId = "<#should be empty string #>"
+let accountId = "<#should be "ANONYMOUS"#>"
+let subscriptionId = "<#subscription Id for the one who pay#>"
 
-> let accountId = "<#should be "ANONMOUS"#>"
-
-> let subscriptionId = "<#subscription Id for the one who paid for#>". 
-
+// ...
+```
 
 in order to change your content language , you should change the `language` before building the module 
 
