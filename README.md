@@ -40,8 +40,10 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
  let controller = paymentBuilder.build() // handle the result (by pushing - presenting , ....)
 
 ```
- - make top up for other  . 
-   the `PaymentUserInfo` object should be :- 
+ - make top up for other
+
+ `PaymentUserInfo` object should be look like 
+ 
 ```swift
 // ...
 
@@ -55,7 +57,9 @@ let paymentInfo = PaymentUserInfo(documentId: documentId, accountId: accountId, 
 ```
 
 - anonymous journey . 
-    the `PaymentUserInfo` object should be :- 
+   
+    `PaymentUserInfo` object should be look like 
+
 ```swift
 // ...
 
