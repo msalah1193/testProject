@@ -42,7 +42,7 @@ let paramModel = VFMVA10PaymnetParamsModel(paymentInfo: paymentInfo, amount: amo
 ```
  - make top up for other
 
- `PaymentUserInfo` object should be look like 
+   `PaymentUserInfo` object should be look like 
  
 ```swift
 // ...
@@ -58,7 +58,7 @@ let paymentInfo = PaymentUserInfo(documentId: documentId, accountId: accountId, 
 
 - anonymous journey . 
    
-    `PaymentUserInfo` object should be look like 
+  `PaymentUserInfo` object should be look like 
 
 ```swift
 // ...
@@ -133,20 +133,20 @@ Tells the builder to delegate the success action to a delegate class.
 The success feedback controller overrides click on its own button. Use the dedicated `MVA10PaymentSuccessFeedbackActionDelegate` methods .
 
 ```swift
-    // your override action for PrimaryAction(the first one)
-   func paymentSuccessPrimaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+ // your override action for PrimaryAction(the first one)
+func paymentSuccessPrimaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
        
-    }
-    
-    // your override action for SecondaryAction(the second one)
-    func paymentSuccessSecondaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+}
+ 
+// your override action for SecondaryAction(the second one)
+func paymentSuccessSecondaryAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
         // ...        
-    }
+}
     
-    // your override action for closeAction(only on the tray)
-    func paymentSuccessCloseAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
+// your override action for closeAction(only on the tray)
+func paymentSuccessCloseAction(result: VFMVA10PaymentResult, navigator: VFPaymentNavigator) {
         // ...
-    }
+ }
 ```
 > `VFMVA10PaymentResult` provides information about the payment that had been done .
 
