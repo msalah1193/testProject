@@ -166,20 +166,21 @@ Tells the builder to delegate the failure action to a delegate class.
 The Failure feedback controller overrides click on its own button. Use the dedicated `MVA10PaymentFailureFeedbackActionDelegate` methods .
 
 ```swift
-    // your override action for PrimaryAction(the first one)
-   func paymentFailurePrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
-       // ...
-    }
-   
-     // your override action for SecondaryAction(the second one)
-    func paymentFailureSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
-        // ...
-    }
+// your override action for PrimaryAction(the first one)
+func paymentFailurePrimaryAction(result: VFMVA10PaymentResult, type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+       
+}
+ 
+// your override action for SecondaryAction(the second one)
+func paymentFailureSecondaryAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+        // ...        
+}
     
-    // your override action for closeAction(only on the tray)
-    func paymentFailureCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
+ // your override action for closeAction(only on the tray)
+ func paymentFailureCloseAction(result: VFMVA10PaymentResult,type: MVA10PaymentFailureType, navigator: VFPaymentNavigator) {
         // ...
-    }
+ }
+ 
 ```
 > `VFMVA10PaymentResult` provides information about the payment that had been failed  .
 
